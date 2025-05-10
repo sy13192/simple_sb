@@ -5,8 +5,8 @@ pipeline {
         maven 'my_maven'
     }
     environment {
-        GITNAME = 'oolralra'            
-        GITEMAIL = 'oolralra@gmail.com' 
+        GITNAME = 'sy13192'            
+        GITEMAIL = 'sy13192@naver.com' 
         GITWEBADD = 'https://github.com/sy13192/simple_sb.git'
         GITSSHADD = 'git@github.com:sy13192/dep.git'
         GITCREDENTIAL = 'git_cre'
@@ -15,22 +15,7 @@ pipeline {
         DOCKERHUBCREDENTIAL = 'docker_cre'
     }
 
-    stages {
-        stage('start') {
-            steps {
-                sh "echo hello jenkins!!!"
-            }
-            post {
-                failure {
-                    sh "echo failed"
-                }
-                success {
-                    sh "echo success"
-                }
-            }
-        }
-    }
-}
+  
 
   stages {
         stage('Checkout Github') {
@@ -70,6 +55,7 @@ pipeline {
                 // oolralra/fast:<빌드넘버> 와 같은 이미지가 만들어질 예정.
                
             }
+        
             post {
                 failure {
                     sh "echo image build failed"
@@ -127,3 +113,4 @@ pipeline {
        
 
     }
+}
